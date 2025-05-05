@@ -37,3 +37,5 @@ Route::prefix('admin/navbar')->name('navbar.')->group(function () {
 
 // Fasilities
 Route::resource('/admin/facilities', FacilityController::class);
+// Halaman detail facility
+Route::get('/facility/{id}', [FacilityController::class, 'show'])->name('facility.show');

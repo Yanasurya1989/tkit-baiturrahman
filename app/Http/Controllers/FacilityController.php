@@ -39,7 +39,7 @@ class FacilityController extends Controller
 
     public function edit(Facility $facility)
     {
-        return view('admin.facilities.edit', compact('facility'));
+        return view('backend.admin.fasilities.edit', compact('facility'));
     }
 
     public function update(Request $request, Facility $facility)
@@ -61,5 +61,13 @@ class FacilityController extends Controller
         $facility->delete();
 
         return redirect()->route('facilities.index')->with('success', 'Facility deleted successfully.');
+    }
+
+    public function show($id)
+    {
+        $facility = Facility::findOrFail($id);
+        $otherFacilities = Facility::where('id', '!=', $id)->paginate(5);
+
+        return view('frontend.layouts.fasilities.show', compact('facility', 'otherFacilities'));
     }
 }

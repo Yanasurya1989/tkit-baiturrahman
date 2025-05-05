@@ -77,29 +77,30 @@
         </div>
         @php use Illuminate\Support\Str; @endphp
 
-        <div class="row g-4">
+        <div class="row g-4 d-flex justify-content-center flex-wrap">
             @foreach (\App\Models\Facility::all() as $key => $facility)
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="{{ 0.1 + $key * 0.2 }}s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-{{ $facility->color_class }}"
-                            style="display: flex; justify-content: center; align-items: center; position: relative;">
-                            <span class="bg-{{ $facility->color_class }}" style="position: absolute;"></span>
-                            <i class="fa {{ $facility->icon_class }} fa-3x text-{{ $facility->color_class }}"></i>
-                            <span class="bg-{{ $facility->color_class }}" style="position: absolute;"></span>
+                    <a href="{{ route('facility.show', $facility->id) }}" class="text-decoration-none">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-{{ $facility->color_class }}"
+                                style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <span class="bg-{{ $facility->color_class }}" style="position: absolute;"></span>
+                                <i class="fa {{ $facility->icon_class }} fa-3x text-{{ $facility->color_class }}"></i>
+                                <span class="bg-{{ $facility->color_class }}" style="position: absolute;"></span>
+                            </div>
+                            <div class="facility-text bg-{{ $facility->color_class }}">
+                                <h3 class="text-{{ $facility->color_class }} mb-3">
+                                    {{ Str::limit($facility->title, 10) }}
+                                </h3>
+                                <p class="mb-0">
+                                    {{ Str::limit($facility->description, 50) }}
+                                </p>
+                            </div>
                         </div>
-                        <div class="facility-text bg-{{ $facility->color_class }}">
-                            <h3 class="text-{{ $facility->color_class }} mb-3">
-                                {{ Str::limit($facility->title, 3) }}
-                            </h3>
-                            <p class="mb-0">
-                                {{ Str::limit($facility->description, 5) }}
-                            </p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             @endforeach
         </div>
-
 
     </div>
 </div>

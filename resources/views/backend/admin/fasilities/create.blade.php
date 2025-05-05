@@ -60,6 +60,11 @@
                     <option value="fa-school" {{ old('icon_class') == 'fa-school' ? 'selected' : '' }}>Sekolah (fa-school)
                     </option>
                     <option value="fa-wifi" {{ old('icon_class') == 'fa-wifi' ? 'selected' : '' }}>WiFi (fa-wifi)</option>
+                    <option value="fa-camera" {{ old('icon_class') == 'fa-camera' ? 'selected' : '' }}>Camera (fa-camera)
+                    </option>
+                    <option value="fa-truck" {{ old('icon_class') == 'fa-truck' ? 'selected' : '' }}>Truck
+                        (fa-truck)
+                    </option>
                 </select>
                 @error('icon_class')
                     <div class="invalid-feedback">{{ $message }}</div>
