@@ -110,6 +110,18 @@
                         Classes
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('backend.admin.appointments.index') }}"
+                        class="nav-link {{ request()->routeIs('backend.admin.appointments.*') ? 'active' : '' }}">
+                        Appointment Management
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('appointment-images.index') }}"
+                        class="nav-link {{ request()->routeIs('appointment-images.*') ? 'active' : '' }}">
+                        Appointment Image Management
+                    </a>
+                </li>
             </ul>
         </aside>
 

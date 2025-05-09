@@ -5,11 +5,13 @@ use App\Http\Controllers\HeroController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\NavbarItemController;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\CallToActionController;
 use App\Http\Controllers\SectionSettingController;
+use App\Http\Controllers\AppointmentImageController;
 
 // Route::get('/', function () {
 //     return view('frontend.layouts.master');
@@ -58,3 +60,10 @@ Route::prefix('backend/admin')->name('backend.admin.')->group(function () {
 });
 Route::patch('/admin/classes/{class}/toggle-status', [SchoolClassController::class, 'toggleStatus'])->name('backend.admin.classes.toggleStatus');
 Route::get('/', [SchoolClassController::class, 'frontendClasses'])->name('frontend.layouts.master');
+
+// Appoinment
+Route::prefix('backend/admin')->name('backend.admin.')->group(function () {
+    Route::resource('appointments', AppointmentController::class);
+});
+Route::resource('appointment-images', AppointmentImageController::class);
+Route::put('appointment-images/{id}/toggle', [AppointmentImageController::class, 'toggleStatus'])->name('appointment-images.toggle');
