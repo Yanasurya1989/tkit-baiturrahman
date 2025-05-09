@@ -83,6 +83,33 @@
                         Navbar Items
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('navbar.index') }}"
+                        class="nav-link {{ request()->routeIs('navbar.*') ? 'active' : '' }}">
+                        Navbar Items
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('facilities.index') }}"
+                        class="nav-link {{ request()->routeIs('facilities.*') ? 'active' : '' }}">
+                        Facility Management
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('about.index') }}"
+                        class="nav-link {{ request()->routeIs('about.*') ? 'active' : '' }}">
+                        About Section
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('backend.admin.classes.index') }}"
+                        class="nav-link {{ request()->routeIs('backend.admin.classes.*') ? 'active' : '' }}">
+                        Classes
+                    </a>
+                </li>
             </ul>
         </aside>
 

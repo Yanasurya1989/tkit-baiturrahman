@@ -5,12 +5,15 @@ use App\Http\Controllers\HeroController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\NavbarItemController;
+use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\SiteSettingController;
+use App\Http\Controllers\AboutSectionController;
+use App\Http\Controllers\CallToActionController;
 use App\Http\Controllers\SectionSettingController;
 
-Route::get('/', function () {
-    return view('frontend.layouts.master');
-});
+// Route::get('/', function () {
+//     return view('frontend.layouts.master');
+// });
 
 Route::get('/admin/sections', [SectionSettingController::class, 'index'])->name('sections.index');
 Route::post('/admin/sections/order', [SectionSettingController::class, 'updateOrder'])->name('sections.updateOrder');
@@ -39,3 +42,19 @@ Route::prefix('admin/navbar')->name('navbar.')->group(function () {
 Route::resource('/admin/facilities', FacilityController::class);
 // Halaman detail facility
 Route::get('/facility/{id}', [FacilityController::class, 'show'])->name('facility.show');
+
+// about
+Route::resource('about', AboutSectionController::class);
+Route::get('/admin/about/create', [AboutSectionController::class, 'create'])->name('about.create');
+Route::post('/admin/about', [AboutSectionController::class, 'store'])->name('about.store');
+Route::patch('/about/{id}/toggle', [AboutSectionController::class, 'toggleStatus'])->name('about.toggleStatus');
+
+// call to action
+Route::resource('call-to-action', CallToActionController::class);
+
+// Classes
+Route::prefix('backend/admin')->name('backend.admin.')->group(function () {
+    Route::resource('classes', SchoolClassController::class);
+});
+Route::patch('/admin/classes/{class}/toggle-status', [SchoolClassController::class, 'toggleStatus'])->name('backend.admin.classes.toggleStatus');
+Route::get('/', [SchoolClassController::class, 'frontendClasses'])->name('frontend.layouts.master');
