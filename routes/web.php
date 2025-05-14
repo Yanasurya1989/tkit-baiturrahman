@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\NavbarItemController;
 use App\Http\Controllers\AppointmentController;
@@ -67,3 +68,7 @@ Route::prefix('backend/admin')->name('backend.admin.')->group(function () {
 });
 Route::resource('appointment-images', AppointmentImageController::class);
 Route::put('appointment-images/{id}/toggle', [AppointmentImageController::class, 'toggleStatus'])->name('appointment-images.toggle');
+
+// Team
+Route::resource('teams', \App\Http\Controllers\TeamController::class);
+Route::get('/', [TeamController::class, 'frontend'])->name('frontend.home');

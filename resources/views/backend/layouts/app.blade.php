@@ -122,6 +122,13 @@
                         Appointment Image Management
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('teams.index') }}"
+                        class="nav-link {{ request()->routeIs('teams.*') ? 'active' : '' }}">
+                        Team Management
+                    </a>
+                </li>
+
             </ul>
         </aside>
 
