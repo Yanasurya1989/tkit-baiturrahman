@@ -23,6 +23,15 @@ class NavbarItemController extends Controller
         return view('backend.admin.navbar.index', compact('items', 'navbarItems', 'logo'));
     }
 
+    public function indexFooter()
+    {
+        $items = NavbarItem::whereNull('parent_id')->with('children')->orderBy('order')->get();
+        $navbarItems = NavbarItem::orderBy('order')->get(); // ← ini yang dibutuhkan form
+        $logo = \App\Models\Logo::latest()->first();
+
+        return view('frontend.partials.footer', compact('items', 'navbarItems', 'logo'));
+    }
+
 
     public function store(Request $request)
     {

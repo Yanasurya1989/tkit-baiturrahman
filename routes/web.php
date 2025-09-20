@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\TeamController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\NavbarItemController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\SiteSettingController;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\CallToActionController;
 use App\Http\Controllers\SectionSettingController;
@@ -17,6 +19,16 @@ use App\Http\Controllers\AppointmentImageController;
 // Route::get('/', function () {
 //     return view('frontend.layouts.master');
 // });
+
+// Route::resource('news', \App\Http\Controllers\NewsController::class);
+Route::prefix('admin')->name('backend.admin.')->group(function () {
+    Route::resource('news', \App\Http\Controllers\NewsController::class);
+});
+
+Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'authenticate']);
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
 
 Route::get('/admin/sections', [SectionSettingController::class, 'index'])->name('sections.index');
 Route::post('/admin/sections/order', [SectionSettingController::class, 'updateOrder'])->name('sections.updateOrder');
@@ -72,3 +84,8 @@ Route::put('appointment-images/{id}/toggle', [AppointmentImageController::class,
 // Team
 Route::resource('teams', \App\Http\Controllers\TeamController::class);
 Route::get('/', [TeamController::class, 'frontend'])->name('frontend.home');
+
+// TEstimony
+Route::resource('testimonials', TestimonialController::class);
+
+Route::get('/logo', [LogoController::class, 'index'])->name('logo');

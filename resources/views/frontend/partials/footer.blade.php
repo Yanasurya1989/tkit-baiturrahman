@@ -1,5 +1,5 @@
 <!-- Footer Start -->
-<div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+{{-- <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
@@ -80,6 +80,78 @@
                         <a href="">FQAs</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div> --}}
+<!-- Footer End -->
+
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <!-- School Identity Column -->
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center mb-3">
+
+                    {{-- @if (isset($logo))
+                        <img src="{{ asset('storage/' . $logo->path) }}" alt="Logo Sekolah" class="me-3"
+                            style="width: 60px; height: 60px;">
+                        <h3 class="text-white mb-0">{{ $logo->institution_name ?? 'Nama Institusi' }}</h3>
+                    @else
+                        <img src="{{ asset('fe/img/logo.png') }}" alt="Logo Default" class="me-3"
+                            style="width: 60px; height: 60px;">
+                        <h3 class="text-white mb-0">TKIT Baiturrahman</h3>
+                    @endif --}}
+
+                    @php
+                        $logoData = \App\Models\Logo::latest()->first();
+                    @endphp
+
+                    <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center">
+                        @if ($logoData)
+                            <img src="{{ asset('storage/' . $logoData->path) }}" alt="Logo" style="height: 40px;">
+                            @if ($logoData->institution_name)
+                                <span class="ms-2 fw-bold">{{ $logoData->institution_name }}</span>
+                            @endif
+                        @else
+                            <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>Kider</h1>
+                        @endif
+                    </a>
+
+                </div>
+                <p class="mb-3">Jl. Pemukti Baru, Tlogo, Prambanan, Klaten, Jawa Tengah, Indonesia Kode Pos. 55598</p>
+                <div class="d-flex">
+                    <a class="btn btn-outline-light btn-social me-2" href="#"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social me-2" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Google Maps Column -->
+            <div class="col-lg-6">
+                <div class="rounded overflow-hidden shadow" style="height: 250px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.941550395875!2d-122.08424968469292!3d37.42199977982533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb0c9437b5351%3A0x4353e18c8b0384e4!2sGoogleplex!5e0!3m2!1sen!2sid!4v1615539402905!5m2!1sen!2sid"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                &copy; <a class="text-white" href="#">TKIT Baiturrahman</a>, All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a class="text-white me-3" href="#">Home</a>
+                <a class="text-white me-3" href="#">Privacy</a>
+                <a class="text-white" href="#">Contact</a>
             </div>
         </div>
     </div>

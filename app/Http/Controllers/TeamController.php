@@ -84,9 +84,10 @@ class TeamController extends Controller
             ->toArray();
 
         $teams = \App\Models\Team::all();
+        $testimonials = \App\Models\Testimonial::all();
         $classes = \App\Models\SchoolClass::all(); // Tambahkan jika partial "classes" butuh ini
         // Tambahkan model lain sesuai kebutuhan section
 
-        return view('frontend.layouts.master', compact('sections', 'teams', 'classes'));
+        return view('frontend.layouts.master', compact('sections', 'teams', 'classes', 'testimonials'));
     }
 }

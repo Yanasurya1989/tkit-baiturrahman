@@ -24,8 +24,8 @@
             <tbody>
                 @foreach ($facilities as $facility)
                     <tr>
-                        <td>{{ $facility->title }}</td>
-                        <td>{{ $facility->description }}</td>
+                        <td>{{ \Illuminate\Support\Str::limit($facility->title, 20) }}</td>
+                        <td>{{ \Illuminate\Support\Str::limit($facility->description, 50) }}</td>
                         <td><i class="fa {{ $facility->icon }}"></i> ({{ $facility->icon }})</td>
                         <td><span class="badge bg-{{ $facility->color_class }}">{{ $facility->color_class }}</span></td>
                         <td>

@@ -20,10 +20,10 @@
 
             <div class="mb-3">
                 <label for="photo" class="form-label">Photo</label><br>
-                @if ($team->photo)
-                    <img src="{{ asset('storage/' . $team->photo) }}" alt="Team Photo" width="100" class="mb-2"><br>
+                @if ($team->image)
+                    <img src="{{ asset('storage/' . $team->image) }}" alt="Team Photo" width="100" class="mb-2"><br>
                 @endif
-                <input type="file" name="photo" class="form-control" accept="image/*">
+                <input type="file" name="image" class="form-control" accept="image/*">
                 <small class="text-muted">Leave empty if you don't want to change the photo</small>
             </div>
 

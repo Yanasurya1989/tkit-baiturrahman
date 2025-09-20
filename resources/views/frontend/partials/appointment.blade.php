@@ -68,7 +68,7 @@
             <div class="row g-0">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="h-100 d-flex flex-column justify-content-center p-5">
-                        <h1 class="mb-4">Make Appointment</h1>
+                        <h1 class="mb-4">Inden</h1>
 
                         <!-- Jika ada pesan sukses, tampilkan di bagian atas -->
                         @if (session('success'))
@@ -85,35 +85,35 @@
                                     <div class="form-floating">
                                         <input type="text" name="gurdian_name" class="form-control border-0"
                                             id="gname" placeholder="Gurdian Name" required>
-                                        <label for="gname">Gurdian Name</label>
+                                        <label for="gname">Nama Orangtua</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
                                         <input type="email" name="gurdian_email" class="form-control border-0"
                                             id="gmail" placeholder="Gurdian Email" required>
-                                        <label for="gmail">Gurdian Email</label>
+                                        <label for="gmail">Email Orangtua</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
                                         <input type="text" name="child_name" class="form-control border-0"
                                             id="cname" placeholder="Child Name" required>
-                                        <label for="cname">Child Name</label>
+                                        <label for="cname">Nama Anak</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
                                         <input type="text" name="child_age" class="form-control border-0"
                                             id="cage" placeholder="Child Age" required>
-                                        <label for="cage">Child Age</label>
+                                        <label for="cage">Usia Anak</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <textarea name="message" class="form-control border-0" placeholder="Leave a message here" id="message"
                                             style="height: 100px"></textarea>
-                                        <label for="message">Message</label>
+                                        <label for="message">Pesan</label>
                                     </div>
                                 </div>
                                 <div class="col-12">

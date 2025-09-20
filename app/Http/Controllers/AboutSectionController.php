@@ -34,10 +34,10 @@ class AboutSectionController extends Controller
             'button_link' => 'nullable|string|max:255',
             'user_name' => 'nullable|string|max:255',
             'user_title' => 'nullable|string|max:255',
-            'user_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'image_1' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'image_2' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'image_3' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'user_image' => 'nullable|image|mimes:jpeg,png,jpg|max:9000',
+            'image_1' => 'nullable|image|mimes:jpeg,png,jpg|max:9000',
+            'image_2' => 'nullable|image|mimes:jpeg,png,jpg|max:9000',
+            'image_3' => 'nullable|image|mimes:jpeg,png,jpg|max:9000',
             'is_active' => 'nullable|boolean',
         ]);
 
@@ -84,10 +84,10 @@ class AboutSectionController extends Controller
             'button_link' => 'nullable|url',
             'user_name' => 'nullable|string|max:255',
             'user_title' => 'nullable|string|max:255',
-            'user_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'image_1' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'image_2' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'image_3' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'user_image' => 'nullable|image|mimes:jpeg,png,jpg|max:4000',
+            'image_1' => 'nullable|image|mimes:jpeg,png,jpg|max:4000',
+            'image_2' => 'nullable|image|mimes:jpeg,png,jpg|max:4000',
+            'image_3' => 'nullable|image|mimes:jpeg,png,jpg|max:4000',
             'is_active' => 'nullable|boolean',
         ]);
 
@@ -111,9 +111,6 @@ class AboutSectionController extends Controller
 
         return redirect()->route('about.create')->with('success', 'Data berhasil disimpan!');
     }
-
-
-
 
     public function show($id)
     {

@@ -65,12 +65,12 @@
                     <h1 class="mb-4">{{ $about->title }}</h1>
                     {{-- Paragraph 1 --}}
                     <p title="{{ $about->paragraph_1 }}">
-                        {{ Str::limit($about->paragraph_1, 2) }}
+                        {{ Str::limit($about->paragraph_1, 150) }}
                     </p>
 
                     {{-- Paragraph 2 --}}
                     <p class="mb-4" title="{{ $about->paragraph_2 }}">
-                        {{ Str::limit($about->paragraph_2, 2) }}
+                        {{ Str::limit($about->paragraph_2, 300) }}
                     </p>
                     <div class="row g-4 align-items-center">
                         <div class="col-sm-6">

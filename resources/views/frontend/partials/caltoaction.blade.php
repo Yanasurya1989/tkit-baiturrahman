@@ -45,7 +45,7 @@
                             <div style="position: relative; max-width: 100%;">
                                 <p
                                     style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; margin-bottom: 0;">
-                                    {{ \Illuminate\Support\Str::limit($cta->description, 10) }}
+                                    {{ \Illuminate\Support\Str::limit($cta->description, 200) }}
                                 </p>
                                 <span
                                     style="

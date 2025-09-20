@@ -31,4 +31,10 @@ class LogoController extends Controller
 
         return back()->with('success', 'Logo berhasil diunggah.');
     }
+
+    public function index()
+    {
+        $logo = Logo::latest()->first(); // ambil logo terbaru
+        return view('frontend.partials.footer', compact('logo')); // atau sesuaikan dengan view yang memanggil partial footer
+    }
 }
